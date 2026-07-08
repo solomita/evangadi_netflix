@@ -3,8 +3,6 @@
 A Netflix landing-page clone built with **React + Vite**, with live movie data
 from the **TMDB** API. Header, banner, hover cards, sliders, and footer.
 
-![Preview](docs/preview.png)
-
 ## Run locally
 
 ```bash
