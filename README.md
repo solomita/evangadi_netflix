@@ -1,71 +1,115 @@
-# Netflix Clone — Phase 4 · Week 1
+<div align="center">
 
-A Netflix landing-page clone built with **React + Vite**, following the Week 1
-guided video sequence. It reproduces the header, banner, movie rows/cards, and
-footer, with live movie data from **TMDB** (The Movie Database).
+# 🎬 Netflix Clone
 
-## Features (built in video order)
+A pixel-faithful **Netflix landing page** built with React + Vite — header, banner,
+hover cards, sliders, and footer, powered by the **TMDB** movie API.
 
-1. **Project overview & setup** — Vite + React scaffold.
-2. **Header** — logo, nav links, expanding search box, notifications bell, and a
-   profile dropdown (Account / Help Center / Sign out). Darkens on scroll.
-3. **Banner** — a random Netflix Original with title, overview, and Play / My List
-   buttons over a full-bleed backdrop with a bottom fade.
-4. **Card** — poster with a Netflix-style hover panel (play / add / mark-watched /
-   more buttons, rating, media type, HD badge, and genres).
-5. **Row & Slider** — horizontal, hover-navigable sliders built with **Swiper**.
-6. **API integration** — `axios` against the TMDB v3 API across 8 categories.
-7. **Footer** — social icons, four link columns, and copyright.
-8. **Deployment** — `vercel.json` for a one-command Vercel deploy.
-9. **AI integration (possibilities)** — see `docs/AI-INTEGRATION.md`.
+<br/>
 
-## Getting started
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper-14-6332F6?logo=swiper&logoColor=white)
+![Axios](https://img.shields.io/badge/Axios-1-5A29E4?logo=axios&logoColor=white)
+
+<br/>
+
+![Netflix clone preview](docs/preview.png)
+
+</div>
+
+> **Phase 4 · Week 1** project — built by following the guided video sequence
+> (setup → header → banner → cards → rows/slider → API → footer → deploy → AI).
+
+---
+
+## ✨ Features
+
+| Component | What it does |
+| --------- | ------------ |
+| **Header** | Logo, nav links, expanding search box, notifications bell, and a profile dropdown. Fades to solid black on scroll. |
+| **Banner** | A random Netflix Original with title, overview, and **Play** / **My List** buttons over a full-bleed backdrop. |
+| **MovieCard** | Poster that expands on hover into a panel with play / add / mark-watched / more buttons, rating, media type, HD badge, and genres. |
+| **Row + Slider** | Horizontal, hover-navigable sliders (**Swiper**) across 8 categories. |
+| **API** | `axios` against the **TMDB v3** API — trending, originals, top rated, action, comedy, horror, romance, documentaries. |
+| **Footer** | Social icons, four link columns, and copyright. |
+
+> 💡 **No API key? No problem.** The app ships with an offline fallback that renders
+> bundled images, so every component is fully browsable before you add a key.
+
+---
+
+## 🚀 Getting started
 
 ```bash
+git clone git@github.com:solomita/evangadi_netflix.git
+cd evangadi_netflix
+
 npm install
-cp .env.example .env      # then paste your TMDB key into .env
-npm run dev               # http://localhost:5173
+cp .env.example .env      # optional: paste your TMDB key
+npm run dev               # → http://localhost:5173
 ```
 
-### TMDB API key
+### 🔑 TMDB API key (optional, for live data)
 
-Live data needs a free TMDB v3 key
-(<https://www.themoviedb.org/settings/api>). Put it in `.env`:
+Get a free key at **<https://www.themoviedb.org/settings/api>** and add it to `.env`:
 
-```
+```env
 VITE_TMDB_API_KEY=your_key_here
 ```
 
-**No key? No problem.** The app ships with an offline fallback that renders the
-bundled resource images (`src/assets/image`), so every component is fully
-browsable before you add a key.
+---
 
-## Scripts
+## 📜 Scripts
 
-| Command           | Description                        |
-| ----------------- | ---------------------------------- |
-| `npm run dev`     | Start the Vite dev server          |
-| `npm run build`   | Production build into `dist/`      |
-| `npm run preview` | Preview the production build       |
-| `npm run lint`    | Run ESLint                         |
+| Command | Description |
+| ------- | ----------- |
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | Run ESLint |
 
-## Deployment (Vercel)
+---
 
-1. Push the repo to GitHub.
-2. Import it in Vercel — framework preset **Vite** is detected automatically.
-3. Add the `VITE_TMDB_API_KEY` environment variable in the Vercel dashboard.
-4. Deploy. `vercel.json` sets the build command, output dir, and SPA rewrites.
+## ☁️ Deployment
 
-## Project structure
+The repo is deploy-ready for both platforms — build command `npm run build`,
+publish directory `dist`. Set `VITE_TMDB_API_KEY` in the host's environment
+variables for live data (optional).
+
+- **Netlify** — Import the repo; `netlify.toml` supplies the build + SPA redirect.
+- **Vercel** — Import the repo; `vercel.json` supplies the build + SPA rewrites.
+
+---
+
+## 🗂️ Project structure
 
 ```
 src/
-  components/
-    Header/    Banner/    MovieCard/    Row/    Footer/
-  utils/
-    axios.js         # TMDB axios instance
-    requests.js      # 8 category endpoints + hasApiKey flag
-    constants.js     # image bases + local-image + helpers
-    fallbackData.js  # offline catalogue from bundled images
-  App.jsx            # header + banner + 8 rows + footer
+├─ components/
+│  ├─ Header/      # nav, search, bell, profile dropdown
+│  ├─ Banner/      # featured title hero
+│  ├─ MovieCard/   # poster + hover overlay
+│  ├─ Row/         # Swiper slider of cards
+│  └─ Footer/      # socials + links
+├─ utils/
+│  ├─ axios.js         # TMDB axios instance
+│  ├─ requests.js      # 8 category endpoints + hasApiKey flag
+│  ├─ constants.js     # image bases + helpers
+│  └─ fallbackData.js  # offline catalogue from bundled images
+└─ App.jsx             # header + banner + 8 rows + footer
 ```
+
+---
+
+## 🤖 AI integration
+
+Planned next step: **movie recommendations from liked titles** — see
+[`docs/AI-INTEGRATION.md`](docs/AI-INTEGRATION.md).
+
+---
+
+## 🙏 Credits
+
+Movie data & images © [The Movie Database (TMDB)](https://www.themoviedb.org/).
+This is a non-commercial educational clone, not affiliated with Netflix.
