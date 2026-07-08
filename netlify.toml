@@ -1,0 +1,10 @@
+# Netlify configuration for the Vite + React Netflix clone
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# SPA fallback: send all routes to index.html so client-side routing works
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
