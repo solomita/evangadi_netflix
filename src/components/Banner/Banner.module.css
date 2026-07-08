@@ -1,0 +1,82 @@
+.banner {
+  position: relative;
+  height: 80vh;
+  min-height: 460px;
+  color: #fff;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.contents {
+  position: absolute;
+  bottom: 22%;
+  left: 4%;
+  max-width: 620px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0 0 16px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  max-width: 520px;
+  margin: 0 0 20px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.play {
+  background: #fff;
+  color: #000;
+}
+
+.list {
+  background: rgba(109, 109, 110, 0.7);
+  color: #fff;
+}
+
+/* Fades the bottom of the banner into the page background */
+.fadeBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.7), #141414);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+}

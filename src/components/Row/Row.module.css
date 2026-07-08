@@ -1,0 +1,57 @@
+/* Adapted from the course-provided Resources/SlideShow.module.css */
+.title {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 8px;
+  padding-left: 50px;
+}
+
+/* Make wrapper stable */
+.Row {
+  position: relative;
+  margin: 18px 0;
+  overflow: visible;
+}
+
+/* Swiper container.
+   overflow-x: clip hides off-screen slides + edge expansion, while
+   overflow-y: visible lets the card hover panel grow beyond the row. */
+.Row :global(.swiper) {
+  height: 180px;
+  padding: 30px 50px;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+/* Slides */
+.Row :global(.swiper-slide) {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Navigation buttons base style */
+.Row :global(.swiper-button-prev),
+.Row :global(.swiper-button-next) {
+  background: transparent !important;
+  color: white !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Smaller arrow icon */
+.Row :global(.swiper-button-prev::after),
+.Row :global(.swiper-button-next::after) {
+  font-size: 14px !important;
+}
+
+/* Show on hover */
+.Row:hover :global(.swiper-button-prev),
+.Row:hover :global(.swiper-button-next) {
+  opacity: 1;
+  pointer-events: auto;
+}

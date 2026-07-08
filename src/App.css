@@ -1,0 +1,11 @@
+.app {
+  background: #141414;
+  min-height: 100vh;
+}
+
+/* Pull the rows up so the first row overlaps the banner fade, like Netflix */
+.rows {
+  position: relative;
+  margin-top: -80px;
+  z-index: 2;
+}
